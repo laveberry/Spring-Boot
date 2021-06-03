@@ -2,7 +2,6 @@ package boot.helloboot.service;
 
 import boot.helloboot.domain.Member;
 import boot.helloboot.repository.MemberRepository;
-import boot.helloboot.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +10,18 @@ import java.util.Optional;
  * 서비스 클래스 : 비지니스에 가까운 설계
  * 리포지토리 : 단순히 기계적으로 개발스럽게
  * */
-public class MemberService {
+public class MemberService { //alt + enter : 테스트코드 생성
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+//    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    //MemberRepository를 외부에서 넣어줌 : DI(Dependency Injection)
+    private final MemberRepository memberRepository;
+
+    //constructor 생성
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
 
     /**
      * 회원가입

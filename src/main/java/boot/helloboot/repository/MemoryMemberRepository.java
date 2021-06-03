@@ -7,6 +7,7 @@ import java.util.*;
 //3. 인터페이스 구현 클래스
 public class MemoryMemberRepository implements MemberRepository{
 
+    //static으로 선언
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
 
