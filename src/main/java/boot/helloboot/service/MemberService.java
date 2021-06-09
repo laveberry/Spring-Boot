@@ -2,6 +2,8 @@ package boot.helloboot.service;
 
 import boot.helloboot.domain.Member;
 import boot.helloboot.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +12,8 @@ import java.util.Optional;
  * 서비스 클래스 : 비지니스에 가까운 설계
  * 리포지토리 : 단순히 기계적으로 개발스럽게
  * */
+// 서비스를 통해 멤버가입, 리포지토리 저장 및 꺼내올 수 있음
+//@Service
 public class MemberService { //alt + enter : 테스트코드 생성
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -18,6 +22,7 @@ public class MemberService { //alt + enter : 테스트코드 생성
     private final MemberRepository memberRepository;
 
     //constructor 생성
+//    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

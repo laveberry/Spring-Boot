@@ -7,7 +7,7 @@ import java.util.Optional;
 
 //2. 인터페이스 생성
 public interface MemberRepository {
-
+//    구현체
     Member save(Member member);
 
     //Oprional : null 반환 막아주는 기능

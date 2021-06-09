@@ -14,7 +14,7 @@ class MemberServiceTest {
     MemberService memberService;
     MemoryMemberRepository memberRepository;
 
-    //같은 MemoryMemberRepository사용을 위한 설정
+    //같은 MemoryMemberRepository 사용을 위한 설정
     @BeforeEach
     public void beforeEach(){
         memberRepository = new MemoryMemberRepository();
@@ -25,7 +25,6 @@ class MemberServiceTest {
     public void afterEach(){
         memberRepository.clearStore();
     }
-
 
     @Test
     void 회원가입() {
@@ -57,7 +56,6 @@ class MemberServiceTest {
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다");
 
-
 //        try {
 //            memberService.join(member2);
 //            fail("예외가 발생해야 합니다.");
@@ -66,7 +64,6 @@ class MemberServiceTest {
 //            Assertions.assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다");
 //            System.out.println("캐치 성공");
 //        }
-
 
         //then
     }

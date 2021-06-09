@@ -1,10 +1,12 @@
 package boot.helloboot.repository;
 
 import boot.helloboot.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 //3. 인터페이스 구현 클래스
+//@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     //static으로 선언
@@ -37,5 +39,4 @@ public class MemoryMemberRepository implements MemberRepository{
     public void clearStore(){
         store.clear();
     }
-
 }
