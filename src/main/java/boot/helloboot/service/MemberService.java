@@ -5,6 +5,7 @@ import boot.helloboot.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +15,9 @@ import java.util.Optional;
  * */
 // 서비스를 통해 멤버가입, 리포지토리 저장 및 꺼내올 수 있음
 //@Service
+
+//jpa는 항상 트랜젝션 필요(필요 메소드만 해도됨)
+@Transactional
 public class MemberService { //alt + enter : 테스트코드 생성
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();

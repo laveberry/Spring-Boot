@@ -5,6 +5,7 @@ import boot.helloboot.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -25,11 +26,11 @@ class MemberServiceIntegrationTest {
 
 
     @Test
-//    @Commit
+    @Commit
     void 회원가입() {
         //given
         Member member = new Member();
-        member.setName("spring");
+        member.setName("spring5");
 
         //when
         Long saveId = memberService.join(member);

@@ -8,8 +8,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +19,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
     //injection못받아서 데이터소스로
     //생성자가 하나만 있으면 스프링빈으로 등록시 Autowired 생략가능
-//    @Autowired
+    //@Autowired
     public JdbcTemplateMemberRepository(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -42,18 +40,19 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     @Override
     public Optional<Member> findById(Long id) {
 //        return Optional.empty();
-        List<Member> result =  jdbcTemplate.query("select * from member where id = ?", memberRowMapper());
+        List<Member> result =  jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), id);
         return result.stream().findAny();
     }
 
     @Override
     public Optional<Member> findByName(String name) {
-        return Optional.empty();
+        List<Member> result =  jdbcTemplate.query("select * from member where name = ?", memberRowMapper(), name);
+        return result.stream().findAny();
     }
 
     @Override
     public List<Member> findAll() {
-        return null;
+        return jdbcTemplate.query("select * from ", memberRowMapper());
     }
 
     private RowMapper<Member> memberRowMapper(){

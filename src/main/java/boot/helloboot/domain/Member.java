@@ -7,9 +7,18 @@ package boot.helloboot.domain;
     개발을 진행하기 위해서 초기 개발 단계에서는 구현체로 가벼운 메모리 기반의 데이터 저장소 사용
 * */
 //1.
+
+import javax.persistence.*;
+
+//jpa적용
+@Entity
 public class Member {
 
+    //IDENTITY : db가 알아서생성
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+//    @Column(name="username")
     private String name;
 
 
