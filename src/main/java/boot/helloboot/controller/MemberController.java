@@ -22,7 +22,9 @@ public class MemberController {
 //    방법2) 생성자 주입(젤 죠음)
     @Autowired
     public MemberController(MemberService memberService) {
+        //memberService injection
         this.memberService = memberService;
+        System.out.println("memberService = " + memberService.getClass());
     }
 
 //    방법3) setter주입 : public으로 변경가능성 있어 별루

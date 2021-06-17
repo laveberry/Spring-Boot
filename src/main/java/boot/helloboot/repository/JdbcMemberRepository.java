@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class JdbcMemberRepository implements MemberRepository{
 
-    // db붙으려면 데이ㅓ소스 필요
+    // db붙으려면 데이터소스 필요
     private final DataSource dataSource;
 
     //스프링 통해 데이터소스 주입받기
@@ -86,8 +86,9 @@ public class JdbcMemberRepository implements MemberRepository{
     @Override
     public List<Member> findAll() {
         //전체조회
-        String sql = "select * from member"; Connection conn = null;
+        String sql = "select * from member";
 
+        Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 

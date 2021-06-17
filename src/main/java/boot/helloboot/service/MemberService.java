@@ -43,9 +43,20 @@ public class MemberService { //alt + enter : 테스트코드 생성
 //            throw new IllegalStateException("이미 존재하는 회원입니다");
 //        });
 
-        validateDuplicateMember(member); //Refactor : 중복회원 검증
-        memberRepository.save(member);
-        return member.getId();
+        //시간 측정(공통함수로도 구현)
+        long start = System.currentTimeMillis();
+
+        try{
+            validateDuplicateMember(member); //Refactor : 중복회원 검증
+            memberRepository.save(member);
+            return member.getId();
+        }
+        finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join = "+ timeMs + "ms");
+        }
+
     }
 
     private void validateDuplicateMember(Member member) {
@@ -59,7 +70,16 @@ public class MemberService { //alt + enter : 테스트코드 생성
      * 전체회원조회
      * */
     public List<Member> findMembers(){
-        return memberRepository.findAll();
+        //공통함수로 구현하여 시간로직 삭제
+//        long start = System.currentTimeMillis();
+//        try {
+            return memberRepository.findAll();
+//        }
+//        finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("findMembers = "+ timeMs + "ms");
+//        }
     }
 
     public Optional<Member> findOne(Long memberId){

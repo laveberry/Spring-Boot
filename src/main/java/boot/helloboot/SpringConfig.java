@@ -1,5 +1,6 @@
 package boot.helloboot;
 
+import boot.helloboot.aop.TimeTraceAop;
 import boot.helloboot.repository.JdbcMemberRepository;
 import boot.helloboot.repository.JdbcTemplateMemberRepository;
 import boot.helloboot.repository.JpaMemberRepository;
@@ -52,6 +53,12 @@ public class SpringConfig {
 //        return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
+//    }
+
+    //AOP 스프링빈 등록
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
 //    }
 
 }
