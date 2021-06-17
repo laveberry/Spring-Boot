@@ -23,6 +23,9 @@ public class MemberService { //alt + enter : 테스트코드 생성
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
 
     //MemberRepository를 외부에서 넣어줌 : DI(Dependency Injection)
+    /**
+    * 서비스에서 엔티티(DB쪽) 접근하기 위해 먼저 정의해놓은 Repository 선언해서 활용함
+    * */
     private final MemberRepository memberRepository;
 
     //constructor 생성
@@ -44,21 +47,20 @@ public class MemberService { //alt + enter : 테스트코드 생성
 //        });
 
         //시간 측정(공통함수로도 구현)
-        long start = System.currentTimeMillis();
-
-        try{
+//        long start = System.currentTimeMillis();
+//        try{
             validateDuplicateMember(member); //Refactor : 중복회원 검증
             memberRepository.save(member);
             return member.getId();
-        }
-        finally {
-            long finish = System.currentTimeMillis();
-            long timeMs = finish - start;
-            System.out.println("join = "+ timeMs + "ms");
-        }
-
+//        }
+//        finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("join = "+ timeMs + "ms");
+//        }
     }
 
+    //중복회원 검증
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName()).
                 ifPresent(m ->{
@@ -85,5 +87,4 @@ public class MemberService { //alt + enter : 테스트코드 생성
     public Optional<Member> findOne(Long memberId){
         return memberRepository.findById(memberId);
     }
-
 }

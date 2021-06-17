@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 //2. 인터페이스 생성
+/**
+ * Repository : Entitiy에 의해 생성
+ * */
 public interface MemberRepository {
 //    구현체
     Member save(Member member);
