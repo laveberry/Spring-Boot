@@ -4,7 +4,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
-
+/**
+ * @Component : @Bean과 달리 개발자가 직접 작성한 클래스를 스프링 컨테이너에 등록
+ * */
 @Aspect
 @Component //스프링 빈 등록
 public class TimeTraceAop {
