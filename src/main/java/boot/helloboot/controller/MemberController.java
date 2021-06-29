@@ -19,7 +19,7 @@ public class MemberController {
 //    @Autowired
     private final MemberService memberService;
 
-//    방법2) 생성자 주입(젤 죠음)
+//    방법2) 생성자 주입(젤 죠음), ApplicationContext에 올라가 있어야해서 Bean간 상호참조 막을 수 있음.
     /**
     * (required = false)은 의존성을 'Optional'로 설정
     * 주입받을 의존객체가 필수적이지 않을경우 false로 설정해 의존객체 주입받지 못하더라도 빈을 생성함
